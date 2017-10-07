@@ -1,0 +1,50 @@
+"Loop Enter Number:"
+inc 16
+
+lit 0
+lit 5
+lit 5
+out 2
+out 3
+
+lit 5
+lit 13
+lit 14
+out 2
+
+la 0 32
+la 0 36
+in 0
+
+
+la 0 40
+lit 0
+sto
+
+jmp .addAndPrint
+
+
+
+
+
+
+.end
+halt
+
+.addAndPrint
+la 0 40
+lv 0 40
+lit 1
+add
+sto
+
+lv 0 40
+lit 1
+out 0
+
+lv 0 32
+lv 0 40
+rel 2
+tjmp .end
+out 3
+jmp .addAndPrint
