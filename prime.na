@@ -1,0 +1,121 @@
+"Prime Not positiv"
+
+inc 20
+#32 input number
+#36 cur factor
+
+lit 0
+lit 5
+lit 6
+out 2
+out 3
+
+#input number
+la 0 32
+la 0 36
+in 0
+sto
+
+#output of number
+#lv 0 32
+#lit 1
+#out 0
+
+#cur factor
+la 0 36
+lit 2
+sto
+
+lit 0
+lv 0 32
+rel 5
+fjmp .next
+
+#===================================
+.end
+#===================================
+#end the programm
+halt
+
+#===================================
+.print
+#===================================
+#print the current factor, current number, calculates the new Number and then print it.
+#stops if the new number is 1
+
+
+
+#calculate current number
+la 0 32
+lv 0 32
+lv 0 36
+div
+sto
+
+#variante 1 table like, also uncomment 20 - 22
+#output of the current factor
+#lv 0 36
+#lit 8
+#out 0
+#out 3
+
+#output of the new current number
+#lv 0 32
+#lit 1
+#out 0
+#variante end
+
+#variante 2 in one row
+lv 0 36
+lit 2
+out 0
+
+#variante end
+
+#check new number for 1
+lv 0 32
+lit 1
+rel 2
+tjmp .end
+
+jmp .next
+
+
+#===================================
+.next
+#===================================
+#find the next prime to divide through
+
+
+lv 0 32
+lv 0 36
+mod
+lit 0
+rel 2
+tjmp .print
+
+
+
+jmp .nextNumber
+jmp .end
+
+#===================================
+.nextNumber
+#===================================
+#somewhat unnecessary
+la 0 36
+lv 0 36
+lit 1
+add
+sto
+
+
+
+jmp .next
+
+
+lit 99
+lit 1
+out 0
+out 3
+jmp .end
